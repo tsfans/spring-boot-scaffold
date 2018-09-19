@@ -1,19 +1,14 @@
 package cn.swift.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 
 import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
 
 @Configuration
 public class Redisconfiguration {
-
-  @Autowired
-  StringRedisTemplate stringRedisTemplate;
 
   @Bean
   public RedisTemplate<String, Object> redisTemplate() {
