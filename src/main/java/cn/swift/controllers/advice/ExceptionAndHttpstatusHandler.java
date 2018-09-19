@@ -30,11 +30,12 @@ public class ExceptionAndHttpstatusHandler
   private static final String PATH = "/error";
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
-  public BaseResponse<String> validExceptionHandler(MethodArgumentNotValidException e,
+  public BaseResponse<String> validExceptionHandler(MethodArgumentNotValidException e1,
                                                     HttpServletRequest request) {
-    log.warn("Request path [{}], BindException: {}", request.getRequestURI(), e.getMessage());
+    log.warn("Request path [{}], BindException: {}", request.getRequestURI(),
+        e1.getMessage());
     return BaseResponse.fail(ResponseCode.ILLEGAL_ARGUMENT.getCode(),
-        e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        e1.getBindingResult().getAllErrors().get(0).getDefaultMessage());
   }
 
   @ExceptionHandler(value = ServiceException.class)
@@ -46,7 +47,6 @@ public class ExceptionAndHttpstatusHandler
   @RequestMapping(value = PATH)
   @ExceptionHandler(value = Exception.class)
   public BaseResponse<String> error(HttpServletRequest request, Exception e) {
-    long errorCode = System.currentTimeMillis();
     HttpStatus status = getStatus(request);
     String msg = e.getMessage() == null ? status.getReasonPhrase() : e.getMessage();
     return BaseResponse.fail(status.value() + "", msg);

@@ -35,9 +35,8 @@ spring:
       test-on-borrow: false
       test-on-return: false
       test-while-idle: false
-      time-between-eviction-runs-millis: 60000
+      time-between-eviction-runs-millis: 6000
       min-evictable-idle-time-millis: 300000
-      max-evictable-idle-time-millis: 600000
       filters: stat,logback,wall
 mybatis: 
   mapper-locations: classpath:cn/swift/mapper/*.xml

@@ -2,9 +2,7 @@ package cn.swift.common.enums;
 
 public enum ResponseCode {
 
-  SUCCESS("1", "成功"), 
-  ILLEGAL_ARGUMENT("0", "参数错误"),
-  FAILURE("-1", "失败");
+  SUCCESS("200", "成功"), ILLEGAL_ARGUMENT("400", "参数错误"), FAILURE("500", "失败");
   
   private final String code;
   private final String msg;
