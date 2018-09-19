@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: scaffold
+  profiles:
+    active:
+      dev
+  jackson:
+    time-zone: GMT+8
+    
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    
+logging:
+  config: classpath:logback.xml
+  
+
+  
+
+
+    
