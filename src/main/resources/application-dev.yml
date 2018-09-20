@@ -37,7 +37,7 @@ spring:
       test-while-idle: false
       time-between-eviction-runs-millis: 6000
       min-evictable-idle-time-millis: 300000
-      filters: stat,logback,wall
+      filters: stat,wall
 mybatis: 
   mapper-locations: classpath:cn/swift/mapper/*.xml
   type-aliases-package: cn.swift.model
