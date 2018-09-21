@@ -11,6 +11,9 @@
   <sql id="Base_Column_List">
     id, username, password, email, description
   </sql>
+  <select id="findByUsernameAndPassword" parameterType="cn.swift.controllers.request.UserRequest" resultMap="BaseResultMap">
+  	select * from users where username=#{username} and password=#{password}
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

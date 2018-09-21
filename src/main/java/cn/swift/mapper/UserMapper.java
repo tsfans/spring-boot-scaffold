@@ -1,7 +1,9 @@
 package cn.swift.mapper;
 
-import cn.swift.model.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import cn.swift.controllers.request.UserRequest;
+import cn.swift.model.User;
 
 @Mapper
 public interface UserMapper {
@@ -16,4 +18,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User findByUsernameAndPassword(UserRequest ur);
 }

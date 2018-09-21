@@ -59,12 +59,7 @@ public class ExceptionAndHttpstatusHandler
                                               Class<? extends HttpMessageConverter<?>> var4,
                                               ServerHttpRequest req,
                                               ServerHttpResponse res) {
-    if (br.getCode().equals("400")) {
-      res.setStatusCode(HttpStatus.BAD_REQUEST);
-    }
-    if (br.getCode().equals("500")) {
-      res.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+    res.setStatusCode(HttpStatus.valueOf(Integer.valueOf(br.getCode())));
     return br;
   }
 
