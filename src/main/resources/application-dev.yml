@@ -2,7 +2,7 @@ spring:
   data:
     elasticsearch:
       cluster-name: elasticsearch
-      cluster-nodes: 127.0.0.1:9200
+      cluster-nodes: 127.0.0.1:9300
   servlet:
     multipart:
       max-file-size: 10240KB
