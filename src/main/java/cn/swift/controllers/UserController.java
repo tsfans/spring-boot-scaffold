@@ -11,13 +11,17 @@ import cn.swift.common.enums.ResponseCode;
 import cn.swift.common.response.BaseResponse;
 import cn.swift.controllers.request.UserRequest;
 import cn.swift.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(tags = "User")
 @RestController
 public class UserController {
 
   @Autowired
   private UserService userService;
   
+  @ApiOperation(value = "User login")
   @RequestMapping(value = "/user", method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public BaseResponse<String> login(@RequestBody @Valid UserRequest ur) {

@@ -1,0 +1,70 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10240KB
+      max-request-size: 10240KB
+  cache:
+    type: redis
+    cache-names: redisCache
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    ssl: false
+    timeout: 15000
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 5
+        min-idle: 0
+        max-wait: -1
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 10
+      max-active: 50
+      min-idle: 5
+      max-wait: 3000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: select 1
+      validation-query-timeout: 30000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: false
+      time-between-eviction-runs-millis: 6000
+      min-evictable-idle-time-millis: 300000
+      filters: stat,wall
+      web-stat-filter.enabled: true
+mybatis: 
+  mapper-locations: classpath:cn/swift/mapper/*.xml
+  type-aliases-package: cn.swift.model
+  configuration:
+    lazyLoadingEnabled: false
+    aggressiveLazyLoading: true
+    useGeneratedKeys: true
+ 
+logging:
+  level:
+    cn.swift: debug
+   
+# Httpclient connection pool
+httpClient:
+  maxTotal: 200
+  defaultMaxPerRoute: 100
+  connectionTimeout: 10000
+  connectionRequestTimeout: 1000
+  socketTimeout: 30000
+  readTimeout: 10000
+  validateAfterInactivity: 60000
+  
+#ThreadPoolExecutor parameters
+threadpool:
+  corePoolSize: 10
+  maxPoolSize: 20
+  queueCapacity: 10
+  keepAliveSeconds: 5
+  awaitTerminationSeconds: 30
