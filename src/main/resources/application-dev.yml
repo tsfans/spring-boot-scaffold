@@ -51,13 +51,14 @@ logging:
     cn.swift: debug
    
 # Httpclient connection pool
-http:
+httpClient:
   maxTotal: 200
   defaultMaxPerRoute: 100
-  connectTimeout: 5000
-  connectionRequestTimeout: 500
+  connectionTimeout: 10000
+  connectionRequestTimeout: 1000
   socketTimeout: 30000
-  staleConnectionCheckEnabled: true
+  readTimeout: 10000
+  validateAfterInactivity: 60000
   
 #ThreadPoolExecutor parameters
 threadpool:
