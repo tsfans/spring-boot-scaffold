@@ -7,3 +7,4 @@ A spring boot scaffold for developing.
 - Mybatis
 - Redis Cache
 - HttpClient
+- Kafka
