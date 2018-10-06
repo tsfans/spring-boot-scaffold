@@ -1,4 +1,15 @@
 spring:
+  kafka:
+    topic:
+      userTopic: user
+    bootstrap-servers: localhost:9092
+    producer:
+      batch-size: 65536
+      buffer-memory: 524288
+    consumer:
+      group-id: kafka001
+      auto-offset-reset: earliest
+      enable-auto-commit: true
   servlet:
     multipart:
       max-file-size: 10240KB
