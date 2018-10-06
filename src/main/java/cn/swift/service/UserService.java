@@ -42,5 +42,11 @@ public class UserService {
     return userDoc.orElse(null);
   }
 
+  public void addUser(UserRequest ur) {
+    if (!login(ur)) {
+      userMapper.addUser(ur);
+    }
+  }
+
 
 }

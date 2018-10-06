@@ -8,3 +8,4 @@ A spring boot scaffold for developing.
 - Redis Cache
 - HttpClient
 - Elasticsearch
+- Kafka

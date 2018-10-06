@@ -15,6 +15,7 @@ import cn.swift.common.response.BaseResponse;
 import cn.swift.controllers.request.UserRequest;
 import cn.swift.model.document.UserDocument;
 import cn.swift.service.UserService;
+import cn.swift.service.kafka.KafkaProducerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -25,6 +26,8 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+  @Autowired
+  private KafkaProducerService kafkaProducerService;
   
   @ApiOperation(value = "user login")
   @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -43,5 +46,11 @@ public class UserController {
   @GetMapping(value = "/get", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public BaseResponse<UserDocument> searchByUserId(@Param("id") String id) {
     return BaseResponse.success(userService.searchByUserId(id));
+  }
+  @ApiOperation(value = "Add user")
+  @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public BaseResponse<String> addUser(@RequestBody @Valid UserRequest ur) {
+    kafkaProducerService.send(ur);
+    return BaseResponse.success(null);
   }
 }
