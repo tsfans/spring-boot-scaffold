@@ -11,6 +11,7 @@ import cn.swift.common.enums.ResponseCode;
 import cn.swift.common.response.BaseResponse;
 import cn.swift.controllers.request.UserRequest;
 import cn.swift.service.UserService;
+import cn.swift.service.kafka.KafkaProducerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -20,12 +21,22 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+  @Autowired
+  private KafkaProducerService kafkaProducerService;
   
   @ApiOperation(value = "User login")
-  @RequestMapping(value = "/user", method = RequestMethod.POST,
+  @RequestMapping(value = "/user/login", method = RequestMethod.POST,
       produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public BaseResponse<String> login(@RequestBody @Valid UserRequest ur) {
     boolean success = userService.login(ur);
     return success ? BaseResponse.success("success") : BaseResponse.fail(ResponseCode.UN_AUTHENTICATION);
+  }
+
+  @ApiOperation(value = "Add user")
+  @RequestMapping(value = "/user", method = RequestMethod.POST,
+      produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  public BaseResponse<String> addUser(@RequestBody @Valid UserRequest ur) {
+    kafkaProducerService.send(ur);
+    return BaseResponse.success(null);
   }
 }
