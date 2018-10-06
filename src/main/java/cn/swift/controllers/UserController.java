@@ -48,7 +48,7 @@ public class UserController {
     return BaseResponse.success(userService.searchByUserId(id));
   }
   @ApiOperation(value = "Add user")
-  @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public BaseResponse<String> addUser(@RequestBody @Valid UserRequest ur) {
     kafkaProducerService.send(ur);
     return BaseResponse.success(null);
