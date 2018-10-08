@@ -1,4 +1,4 @@
-server.port: 8080
+server.port: 8081
 spring:
   application:
     name: spring-boot-scaffold
@@ -91,18 +91,19 @@ threadpool:
 dubbo:
   service.version: 1.0.0
   application:
-    name: dubbo-provider-demo
-    id: dubbo-provider-demo
+    name: dubbo-consumer-demo
+    id: dubbo-consumer-demo
   protocol:
     id: dubbo
     name: dubbo
-    status: server
     port: 3864
   registry:
     id: my-registry
     address: N/A
-  scan.base-packages: cn.swift.dubbo.provider.service
-  
+
+# Dubbo Endpoints
+endpoints.dubbo.enabled: true
+
 # Enables Dubbo All Endpoints  
 management:
   endpoint:
@@ -115,5 +116,7 @@ management:
   health.dubbo.status:
     defaults: memory
     extras: load,threadpool
+  # Exposes all web endpoints
+  endpoints.web.exposure.include: "*"
     
 

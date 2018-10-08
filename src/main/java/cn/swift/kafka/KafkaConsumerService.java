@@ -1,4 +1,4 @@
-package cn.swift.service.kafka;
+package cn.swift.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;

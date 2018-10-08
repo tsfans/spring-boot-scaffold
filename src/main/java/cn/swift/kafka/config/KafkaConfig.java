@@ -1,4 +1,4 @@
-package cn.swift.service.kafka.config;
+package cn.swift.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,8 +17,8 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
-import cn.swift.service.kafka.serializer.KafkaJsonDeserializer;
-import cn.swift.service.kafka.serializer.KafkaJsonSerializer;
+import cn.swift.kafka.serializer.KafkaJsonDeserializer;
+import cn.swift.kafka.serializer.KafkaJsonSerializer;
 
 @EnableKafka
 @Configuration

@@ -1,4 +1,4 @@
-package cn.swift.service.kafka.serializer;
+package cn.swift.kafka.serializer;
 
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import lombok.extern.slf4j.Slf4j;
