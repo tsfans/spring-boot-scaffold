@@ -14,7 +14,7 @@ public class HelloServiceImpl implements HelloService {
 
   @Override
   public String sayHello(String name) {
-    return "Hello" + name + " --- From Spring Boot";
+    return "Hello " + name + " --- From Provider Service";
   }
 
 }
