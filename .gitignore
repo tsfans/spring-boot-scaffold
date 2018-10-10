@@ -29,6 +29,7 @@ hs_err_pid*
 
 # Idea
 *.iml
+.idea/
 
 #windows
 #*.doc
