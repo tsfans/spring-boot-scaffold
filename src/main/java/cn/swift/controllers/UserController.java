@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import cn.swift.common.enums.ResponseCode;
 import cn.swift.common.response.BaseResponse;
 import cn.swift.controllers.request.UserRequest;
+import cn.swift.kafka.KafkaProducerService;
 import cn.swift.model.document.UserDocument;
 import cn.swift.service.UserService;
-import cn.swift.service.kafka.KafkaProducerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

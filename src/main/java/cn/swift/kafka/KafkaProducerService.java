@@ -1,4 +1,4 @@
-package cn.swift.service.kafka;
+package cn.swift.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

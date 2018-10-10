@@ -9,3 +9,4 @@ A spring boot scaffold for developing.
 - HttpClient
 - Elasticsearch
 - Kafka
+- Dubbo
