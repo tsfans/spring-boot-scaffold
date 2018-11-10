@@ -1,4 +1,22 @@
+server.port: 8080
 spring:
+  application:
+    name: spring-boot-scaffold
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+  kafka:
+    topic:
+      userTopic: user
+    bootstrap-servers: localhost:9092
+    producer:
+      batch-size: 65536
+      buffer-memory: 524288
+    consumer:
+      group-id: kafka001
+      auto-offset-reset: earliest
+      enable-auto-commit: true
   servlet:
     multipart:
       max-file-size: 10240KB
@@ -61,10 +79,41 @@ httpClient:
   readTimeout: 10000
   validateAfterInactivity: 60000
   
-#ThreadPoolExecutor parameters
+# ThreadPoolExecutor parameters
 threadpool:
   corePoolSize: 10
   maxPoolSize: 20
   queueCapacity: 10
   keepAliveSeconds: 5
   awaitTerminationSeconds: 30
+  
+# Dubbo config properties
+dubbo:
+  service.version: 1.0.0
+  application:
+    name: dubbo-provider-demo
+    id: dubbo-provider-demo
+  protocol:
+    id: dubbo
+    name: dubbo
+    status: server
+    port: 3864
+  registry:
+    id: my-registry
+    address: N/A
+  scan.base-packages: cn.swift.dubbo.provider.service
+  
+# Enables Dubbo All Endpoints  
+management:
+  endpoint:
+    dubbo.enabled: true
+    dubbo-shutdown.enabled: true
+    dubbo-services.enabled: true
+    dubbo-references.enabled: true
+    dubbo-properties.enabled: true
+  # Dubbo Health Check
+  health.dubbo.status:
+    defaults: memory
+    extras: load,threadpool
+    
+
