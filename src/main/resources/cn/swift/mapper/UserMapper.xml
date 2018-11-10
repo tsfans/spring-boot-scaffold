@@ -33,7 +33,7 @@
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.swift.model.User">
+  <insert id="insertSelective" parameterType="cn.swift.model.User" useGeneratedKeys="true" keyProperty="id">
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

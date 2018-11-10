@@ -10,3 +10,4 @@ A spring boot scaffold for developing.
 - Elasticsearch
 - Kafka
 - Dubbo
+- JUnit 5

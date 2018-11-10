@@ -1,8 +1,9 @@
 package cn.swift.configuration;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -11,19 +12,19 @@ import cn.swift.SpringBootScaffoldApplicationTests;
 
 public class RedisConfigurationTest extends SpringBootScaffoldApplicationTests {
 
-  @Autowired
-  RedisTemplate<String, String> redisTemplate;
+    @Autowired
+    RedisTemplate<String, String> redisTemplate;
 
-  ValueOperations<String, String> vo;
+    ValueOperations<String, String> vo;
 
-  @Before
-  public void init() {
-    vo = redisTemplate.opsForValue();
-  }
+    @BeforeEach
+    void init() {
+	vo = redisTemplate.opsForValue();
+    }
 
-  @Test
-  public void operateRedis() {
-    vo.set("test", "abc123");
-    Assert.assertTrue("success", vo.get("test").equals("abc123"));
-  }
+    @Test
+    public void operateRedis() {
+	vo.set("test", "abc123");
+	assertTrue(vo.get("test").equals("abc123"));
+    }
 }
