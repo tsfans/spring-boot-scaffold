@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: scaffold
+  profiles:
+    active:
+      local
+  jackson:
+    time-zone: GMT+8
+    
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    
+mybatis: 
+  mapper-locations: classpath:mapper/mysql/*.xml
+  type-aliases-package: cn.swift.entity
+  configuration:
+    lazyLoadingEnabled: false
+    aggressiveLazyLoading: true
+    useGeneratedKeys: true
+  
+# ThreadPoolExecutor parameters
+threadpool:
+  corePoolSize: 10
+  maxPoolSize: 20
+  queueCapacity: 10
+  keepAliveSeconds: 5
+  awaitTerminationSeconds: 30
+  
+# Httpclient connection pool
+httpClient:
+  maxTotal: 200
+  defaultMaxPerRoute: 100
+  connectionTimeout: 10000
+  connectionRequestTimeout: 1000
+  socketTimeout: 30000
+  readTimeout: 10000
+  validateAfterInactivity: 60000
+
+  
+
+
+    

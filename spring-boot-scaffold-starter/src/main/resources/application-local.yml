@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test;mode=MYSQL;DATABASE_TO_UPPER=FALSE
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+    schema:
+    - classpath:sql/user.sql
+
+logging:
+  level:
+    cn.swift: debug

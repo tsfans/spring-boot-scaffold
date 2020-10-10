@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.swift.infrastructure.db.mapper.UserMapper">
+	<resultMap id="ExtBaseResultMap"
+		type="cn.swift.infrastructure.db.po.UserPO"
+		extends="cn.swift.infrastructure.db.mapper.UserPOMapper.BaseResultMap">
+	</resultMap>
+	<sql id="Ext_Base_Column_List">
+		<include
+			refid="cn.swift.infrastructure.db.mapper.UserPOMapper.Base_Column_List"></include>
+	</sql>
+
+	<select id="selectByUsername" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where username = #{username}
+	</select>
+
+	<delete id="deleteByUsername" parameterType="java.lang.String">
+		delete
+		from user
+		where username = #{username}
+	</delete>
+
+</mapper>
