@@ -11,6 +11,7 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
@@ -23,39 +24,45 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @ControllerAdvice
-public class ExceptionHandler implements ResponseBodyAdvice<BaseResponse<Object>>, ErrorController {
-    
+public class GlobalExceptionHandler
+        implements ResponseBodyAdvice<BaseResponse<Object>>, ErrorController {
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public BaseResponse<String> validExceptionHandler(MethodArgumentNotValidException e1,
-                                                      HttpServletRequest request) {
-      log.warn("Request path [{}], BindException: {}", request.getRequestURI(),
-          e1.getMessage());
-      return BaseResponse.fail(ResponseCode.ILLEGAL_ARGUMENT.getCode(),
-          e1.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+            HttpServletRequest request) {
+        log.warn("Request path [{}], BindException", request.getRequestURI(),
+                e1.getMessage());
+        return BaseResponse.fail(ResponseCode.ILLEGAL_ARGUMENT.getCode(),
+                e1.getBindingResult().getAllErrors().get(0).getDefaultMessage());
     }
 
     @ExceptionHandler(value = ServiceException.class)
-    public BaseResponse<String> serviceException(HttpServletRequest request, ServiceException e) {
-      log.warn("Rqeust path [{}], ServiceException: {}", request.getRequestURI(), e.getMsg(), e);
-      return BaseResponse.fail(e.getCode(), e.getMsg());
+    public BaseResponse<String> serviceException(HttpServletRequest request,
+            ServiceException e) {
+        log.warn("Rqeust path [{}], ServiceException", request.getRequestURI(),
+                e);
+        return BaseResponse.fail(e.getCode(), e.getMsg());
     }
 
     @RequestMapping(value = "/error")
     @ExceptionHandler(value = Exception.class)
     public BaseResponse<String> error(HttpServletRequest request, Exception e) {
-      HttpStatus status = getStatus(request);
-      String msg = e.getMessage() == null ? status.getReasonPhrase() : e.getMessage();
-      return BaseResponse.fail(status.value() + "", msg);
+        log.warn("Request path [{}], Exception:", request.getRequestURI(),
+                e);
+        HttpStatus status = getStatus(request);
+        String msg = e.getMessage() == null ? status.getReasonPhrase() : e.getMessage();
+        return BaseResponse.fail(status.value() + "", msg);
     }
-    
+
     private HttpStatus getStatus(HttpServletRequest request) {
-        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        Integer statusCode = (Integer) request
+                .getAttribute("javax.servlet.error.status_code");
         if (statusCode == null) {
-          return HttpStatus.INTERNAL_SERVER_ERROR;
+            return HttpStatus.INTERNAL_SERVER_ERROR;
         }
         return HttpStatus.valueOf(statusCode);
-      }
-    
+    }
+
     @Override
     public String getErrorPath() {
         return "/error";
@@ -64,7 +71,8 @@ public class ExceptionHandler implements ResponseBodyAdvice<BaseResponse<Object>
     @Override
     public boolean supports(MethodParameter returnType,
             Class<? extends HttpMessageConverter<?>> converterType) {
-        return returnType.getMethod().getReturnType().isAssignableFrom(BaseResponse.class);
+        return returnType.getMethod().getReturnType()
+                .isAssignableFrom(BaseResponse.class);
     }
 
     @Override

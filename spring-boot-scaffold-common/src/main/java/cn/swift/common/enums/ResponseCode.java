@@ -2,7 +2,11 @@ package cn.swift.common.enums;
 
 public enum ResponseCode {
 
-  SUCCESS("200", "成功"), ILLEGAL_ARGUMENT("400", "参数错误"), FAILURE("500", "失败"), UN_AUTHENTICATION("403","登录失败");
+  SUCCESS("200", "成功"), 
+  ILLEGAL_ARGUMENT("400", "参数错误"), 
+  FAILURE("500", "失败"), 
+  UN_AUTHENTICATION("403","登录失败"),
+  NOT_FOUND("404", "指定资源不存在");
   
   private final String code;
   private final String msg;

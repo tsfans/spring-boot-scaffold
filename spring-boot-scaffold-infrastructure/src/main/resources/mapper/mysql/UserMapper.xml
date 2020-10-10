@@ -11,9 +11,9 @@
 	</sql>
 
 	<select id="selectByUsername" parameterType="java.lang.String"
-		resultMap="BaseResultMap">
+		resultMap="ExtBaseResultMap">
 		select
-		<include refid="Base_Column_List" />
+		<include refid="Ext_Base_Column_List" />
 		from user
 		where username = #{username}
 	</select>
