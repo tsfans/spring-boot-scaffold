@@ -10,7 +10,7 @@ elif [[ $1 = '-jr' || $1 = 'jar-run' ]]; then
 elif [[ $1 = '-br' || $1 = 'boot-run' ]]; then
 	echo '执行命令: cd spring-boot-scaffold-starter && mvn spring-boot:run'
 	cd spring-boot-scaffold-starter && mvn spring-boot:run
-elif [[ $1 = '-ma' || $1 = 'make-archetype' ]]; then
+elif [[ $1 = '-ga' || $1 = 'generate-archetype' ]]; then
     echo '执行命令: mvn archetype:create-from-project && cd target/generated-sources/archetype/ && mvn install'
     mvn archetype:create-from-project && cd target/generated-sources/archetype/ && mvn install
     echo '指定目录执行以下命令即可按模板骨架生成项目: mvn archetype:generate -DarchetypeGroupId=com.github.tsfans -DarchetypeArtifactId=spring-boot-scaffold-archetype -DarchetypeVersion=0.0.1-SNAPSHOT'
@@ -21,7 +21,7 @@ else
  	-d,deploy          部署api包到远程仓库
  	-br,boot-run       直接运行项目
  	-jr,jar-run        打包项目然后运行jar文件
- 	-ma,make-archetype 生成项目模板骨架
+ 	-ga,generate-archetype 生成项目模板骨架
  	-h,help,...        显示帮助信息
  	'
 fi
