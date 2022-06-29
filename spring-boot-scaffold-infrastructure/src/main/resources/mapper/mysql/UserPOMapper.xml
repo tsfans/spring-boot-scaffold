@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.swift.infrastructure.db.mapper.UserPOMapper">
-  <resultMap id="BaseResultMap" type="cn.swift.infrastructure.db.po.UserPO">
+<mapper namespace="com.github.tsfans.infrastructure.db.mapper.UserPOMapper">
+  <resultMap id="BaseResultMap" type="com.github.tsfans.infrastructure.db.po.UserPO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -20,13 +20,13 @@
     delete from users
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="cn.swift.infrastructure.db.po.UserPO">
+  <insert id="insert" parameterType="com.github.tsfans.infrastructure.db.po.UserPO">
     insert into users (id, username, password, 
       version)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{version,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="cn.swift.infrastructure.db.po.UserPO">
+  <insert id="insertSelective" parameterType="com.github.tsfans.infrastructure.db.po.UserPO">
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.swift.infrastructure.db.po.UserPO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.github.tsfans.infrastructure.db.po.UserPO">
     update users
     <set>
       <if test="username != null">
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.swift.infrastructure.db.po.UserPO">
+  <update id="updateByPrimaryKey" parameterType="com.github.tsfans.infrastructure.db.po.UserPO">
     update users
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

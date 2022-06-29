@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -10,32 +10,32 @@
 		<version>2.7.1</version>
 	</parent>
 
-	<groupId>cn.swift</groupId>
+	<groupId>com.github.tsfans</groupId>
 	<artifactId>spring-boot-scaffold</artifactId>
-	<version>2.0.0</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>spring-boot-scaffold</name>
 	<description>A spring boot scaffold for developing.</description>
-
+	
 	<modules>
-		<module>spring-boot-scaffold-exporter</module>
-		<module>spring-boot-scaffold-application</module>
-		<module>spring-boot-scaffold-domain</module>
-		<module>spring-boot-scaffold-infrastructure</module>
-		<module>spring-boot-scaffold-starter</module>
-		<module>spring-boot-scaffold-common</module>
-	</modules>
+        <module>spring-boot-scaffold-exporter</module>
+        <module>spring-boot-scaffold-application</module>
+        <module>spring-boot-scaffold-domain</module>
+        <module>spring-boot-scaffold-infrastructure</module>
+        <module>spring-boot-scaffold-starter</module>
+        <module>spring-boot-scaffold-common</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		
+
 		<!-- inner version -->
 		<common.version>0.0.1-SNAPSHOT</common.version>
 		<api.version>0.0.1-SNAPSHOT</api.version>
-		
+
 		<!-- outter version -->
 		<fastjson.version>1.2.83</fastjson.version>
 		<mybatis-spring.version>2.2.2</mybatis-spring.version>
@@ -45,52 +45,52 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>cn.swift</groupId>
+				<groupId>com.github.tsfans</groupId>
 				<artifactId>spring-boot-scaffold-api</artifactId>
 				<version>${api.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>cn.swift</groupId>
+				<groupId>com.github.tsfans</groupId>
 				<artifactId>spring-boot-scaffold-api-adapter</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>cn.swift</groupId>
+				<groupId>com.github.tsfans</groupId>
 				<artifactId>spring-boot-scaffold-application</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>cn.swift</groupId>
+				<groupId>com.github.tsfans</groupId>
 				<artifactId>spring-boot-scaffold-domain</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>cn.swift</groupId>
+				<groupId>com.github.tsfans</groupId>
 				<artifactId>spring-boot-scaffold-infrastructure</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>cn.swift</groupId>
+				<groupId>com.github.tsfans</groupId>
 				<artifactId>spring-boot-scaffold-common</artifactId>
 				<version>${common.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson.version}</version>
 			</dependency>
-			
+
 			<dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis-spring.version}</version>
-        </dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis-spring.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -101,26 +101,26 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 			<exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>

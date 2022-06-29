@@ -7,7 +7,7 @@ spring:
   sql:
     init:
       schema-locations:
-      - classpath:sql/user.sql
+      - classpath:sql/users.sql
 
 logging:
   level: 
