@@ -11,9 +11,16 @@ public class UserService {
     @Autowired
     private IdentifierService identifierService;
     
-    public User create(String username, String password) {
+    @Autowired
+    private UserRepository userRepository;
+    
+    public void create(String username, String password) {
+        User existedUser = userRepository.queryUser(username);
+        if(existedUser != null) {
+            return;
+        }
         User user = new User(identifierService.generateIdentifier(), username);
         user.setupPassword(password);
-        return user;
+        userRepository.save(user);
     }
 }

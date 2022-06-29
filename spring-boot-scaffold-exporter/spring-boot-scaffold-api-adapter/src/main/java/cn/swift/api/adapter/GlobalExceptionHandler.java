@@ -64,11 +64,6 @@ public class GlobalExceptionHandler
     }
 
     @Override
-    public String getErrorPath() {
-        return "/error";
-    }
-
-    @Override
     public boolean supports(MethodParameter returnType,
             Class<? extends HttpMessageConverter<?>> converterType) {
         return returnType.getMethod().getReturnType()

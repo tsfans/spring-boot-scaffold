@@ -17,8 +17,7 @@ public class UserApplication {
     private UserService userService;
 
     public void create(String username, String password) {
-        User user = userService.create(username, password);
-        userRepository.save(user);
+        userService.create(username, password);
     }
 
     public User query(String username) {

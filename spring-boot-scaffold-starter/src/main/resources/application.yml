@@ -1,9 +1,9 @@
 spring:
   application:
-    name: scaffold
+    name: spring-boot-scaffold
   profiles:
     active:
-      local
+    - local      
   jackson:
     time-zone: GMT+8
     
@@ -14,7 +14,7 @@ server:
     
 mybatis: 
   mapper-locations: classpath:mapper/mysql/*.xml
-  type-aliases-package: cn.swift.entity
+  type-aliases-package: cn.swift.infrastructure.db.po
   configuration:
     lazyLoadingEnabled: false
     aggressiveLazyLoading: true

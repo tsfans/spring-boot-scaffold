@@ -13,21 +13,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user
+    from users
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from user
+    delete from users
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="cn.swift.infrastructure.db.po.UserPO">
-    insert into user (id, username, password, 
+    insert into users (id, username, password, 
       version)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{version,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.swift.infrastructure.db.po.UserPO">
-    insert into user
+    insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -58,7 +58,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.swift.infrastructure.db.po.UserPO">
-    update user
+    update users
     <set>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
@@ -73,7 +73,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.swift.infrastructure.db.po.UserPO">
-    update user
+    update users
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER}

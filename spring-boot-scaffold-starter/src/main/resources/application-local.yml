@@ -4,9 +4,13 @@ spring:
     username: sa
     password: 
     driver-class-name: org.h2.Driver
-    schema:
-    - classpath:sql/user.sql
+  sql:
+    init:
+      schema-locations:
+      - classpath:sql/user.sql
 
 logging:
-  level:
-    cn.swift: debug
+  level: 
+    com: debug
+    org: debug
+    cn: debug

@@ -13,14 +13,14 @@
 	<select id="selectByUsername" parameterType="java.lang.String"
 		resultMap="ExtBaseResultMap">
 		select
-		<include refid="Ext_Base_Column_List" />
-		from user
+		<include refid="Ext_Base_Column_List"/>
+		from users
 		where username = #{username}
 	</select>
 
 	<delete id="deleteByUsername" parameterType="java.lang.String">
 		delete
-		from user
+		from users
 		where username = #{username}
 	</delete>
 
