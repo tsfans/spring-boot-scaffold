@@ -1,6 +1,3 @@
-/**
- * Copyright (C) 2020 ~ 2022 Meituan. All Rights Reserved.
- */
 package com.github.tsfans.infrastructure.db.mapper;
 
 import org.mybatis.spring.annotation.MapperScan;

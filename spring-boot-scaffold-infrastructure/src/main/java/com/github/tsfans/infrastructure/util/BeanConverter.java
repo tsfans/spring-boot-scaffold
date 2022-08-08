@@ -1,17 +1,8 @@
-/**
- * Copyright (C) 2020 ~ 2020 Meituan. All Rights Reserved.
- */
 package com.github.tsfans.infrastructure.util;
 
 import com.github.tsfans.domain.user.User;
 import com.github.tsfans.infrastructure.db.po.UserPO;
 
-/**
- * @author:   		HuLin
- * @date:    		2020年10月9日 下午9:18:34
- * @description:    DESCRIPTION
- * @version:   		v1.0
- */
 public class BeanConverter {
 
     private BeanConverter() {}
