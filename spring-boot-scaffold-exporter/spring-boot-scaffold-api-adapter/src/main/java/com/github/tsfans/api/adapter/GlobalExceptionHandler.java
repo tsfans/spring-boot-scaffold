@@ -1,6 +1,6 @@
 package com.github.tsfans.api.adapter;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.core.MethodParameter;
@@ -56,7 +56,7 @@ public class GlobalExceptionHandler
 
     private HttpStatus getStatus(HttpServletRequest request) {
         Integer statusCode = (Integer) request
-                .getAttribute("javax.servlet.error.status_code");
+                .getAttribute("jakarta.servlet.error.status_code");
         if (statusCode == null) {
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }
