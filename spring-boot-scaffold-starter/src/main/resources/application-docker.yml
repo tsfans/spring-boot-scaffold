@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://mysql:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+logging:
+  level:
+    cn.swift: debug

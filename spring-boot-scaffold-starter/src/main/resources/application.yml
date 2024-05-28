@@ -3,7 +3,7 @@ spring:
     name: spring-boot-scaffold
   profiles:
     active:
-    - local      
+    - dev      
   jackson:
     time-zone: GMT+8
     

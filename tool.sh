@@ -14,15 +14,31 @@ elif [[ $1 = '-ga' || $1 = 'generate-archetype' ]]; then
     echo '执行命令: mvn archetype:create-from-project && cd target/generated-sources/archetype/ && mvn install'
     mvn archetype:create-from-project && cd target/generated-sources/archetype/ && mvn install
     echo '指定目录执行以下命令即可按模板骨架生成项目: mvn archetype:generate -DarchetypeGroupId=com.github.tsfans -DarchetypeArtifactId=spring-boot-scaffold-archetype -DarchetypeVersion=0.0.1-SNAPSHOT'
+elif [[ $1 = '-pi' || $1 = 'package-iamge' ]]; then
+    echo '执行命令: mvn clean package && docker build -t spring-boot-scaffold-app .'
+    mvn clean package && docker build -t spring-boot-scaffold-app .
+elif [[ $1 = '-rc' || $1 = 'run-container' ]]; then
+    echo '执行命令: docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE=docker spring-boot-scaffold-app'
+    docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE=docker spring-boot-scaffold-app
+elif [[ $1 = '-dcu' || $1 = 'compose-up' ]]; then
+    echo '执行命令: docker-compose up -d'
+    docker-compose up -d
+elif [[ $1 = '-dcd' || $1 = 'compose-down' ]]; then
+    echo '执行命令: docker-compose down'
+    docker-compose down
 else
 	echo '
 	用法: ./tool [选项]
 	选项:
- 	-d,deploy          部署api包到远程仓库
- 	-br,boot-run       直接运行项目
- 	-jr,jar-run        打包项目然后运行jar文件
- 	-ga,generate-archetype 生成项目模板骨架
- 	-h,help,...        显示帮助信息
+ 	-d,deploy                部署api包到远程仓库
+ 	-br,boot-run             直接运行项目
+ 	-jr,jar-run              打包项目然后运行jar文件
+ 	-ga,generate-archetype   生成项目模板骨架
+ 	-pi,package-image        生成docker image
+ 	-rc,run-container        运行docker container
+ 	-dcu,compose-up          运行docker-compose up
+ 	-dcd,compose-down        运行docker-compose down --volumes
+ 	-h,help,...              显示帮助信息
  	'
 fi
 exit 0
