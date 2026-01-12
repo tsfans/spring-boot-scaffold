@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.0</version>
+		<version>4.0.1</version>
 	</parent>
 
 	<groupId>com.github.tsfans</groupId>
@@ -30,17 +30,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>21</java.version>
-		<maven.compiler.release>21</maven.compiler.release>
-		<maven.compiler.source>21</maven.compiler.source>
-  		<maven.compiler.target>21</maven.compiler.target>
+		<java.version>25</java.version>
+		<maven.compiler.release>25</maven.compiler.release>
+		<maven.compiler.source>25</maven.compiler.source>
+  		<maven.compiler.target>25</maven.compiler.target>
 
 		<!-- inner version -->
 		<common.version>0.0.1-SNAPSHOT</common.version>
 		<api.version>0.0.1-SNAPSHOT</api.version>
 
 		<!-- outter version -->
-		<mybatis-spring.version>3.0.3</mybatis-spring.version>
+		<mybatis-spring.version>4.0.1</mybatis-spring.version>
 	</properties>
 
 	<dependencyManagement>
@@ -119,6 +119,19 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.42</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-archetype-plugin</artifactId>

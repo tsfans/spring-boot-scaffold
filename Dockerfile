@@ -1,5 +1,5 @@
-# 使用 JDK 21 作为基础镜像
-FROM eclipse-temurin:21-jre
+# 使用 JDK 25 作为基础镜像
+FROM eclipse-temurin:25-jre
 
 # 将 Spring Boot 应用的 JAR 文件复制到镜像中
 COPY spring-boot-scaffold-starter/target/spring-boot-scaffold-starter.jar /app/spring-boot-scaffold-starter.jar

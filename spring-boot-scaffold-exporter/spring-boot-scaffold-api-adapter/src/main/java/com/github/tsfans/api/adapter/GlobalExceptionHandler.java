@@ -2,7 +2,7 @@ package com.github.tsfans.api.adapter;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.boot.webmvc.error.ErrorController;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
